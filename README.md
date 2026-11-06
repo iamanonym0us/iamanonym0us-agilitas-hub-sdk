@@ -9,7 +9,7 @@ Works with Next.js 14.2+ (tested on 15.5 and 16.4) and `@supabase/ssr` 0.5+.
 ## Install
 
 ```bash
-npm i github:iamanonym0us/iamanonym0us-agilitas-hub-sdk#v1.0.0 @supabase/ssr @supabase/supabase-js
+npm i github:iamanonym0us/iamanonym0us-agilitas-hub-sdk#v1 @supabase/ssr @supabase/supabase-js
 ```
 
 Set two environment variables (local `.env.local` and Vercel). Sid has the values:
@@ -103,4 +103,4 @@ and switches people on. Until then, the app turns everyone away, which is expect
 
 ## Updating
 
-Releases are tags (`v1.0.0`, `v1.1.0`, ...). Bump the `#tag` in `package.json` to upgrade.
+`#v1` follows the 1.x line: fixes and additions only, nothing that breaks an app. `npm update @agilitas/hub-sdk` picks them up; your lockfile keeps the exact version until then. A breaking change would ship as `#v2`.
