@@ -1,0 +1,2 @@
+// Safe to import anywhere (server, client, middleware): constants and helpers only.
+export { HUB_URL, SHARED_DOMAIN, SHARED_COOKIE_NAME, SUPPORT_EMAIL, cookieOptionsFor, isSharedHost, hubLoginUrl, hubEnv, } from "./config.js";
