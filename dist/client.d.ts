@@ -5,7 +5,9 @@ import { type HubEnv } from "./config.js";
  */
 export declare function createHubBrowserClient(env?: Partial<HubEnv>): import("@supabase/supabase-js").SupabaseClient<any, "public", "public", any, any>;
 /**
- * Signs the person out of every Agilitas app and sends them to the apps sign-in.
- * Off the shared domain (localhost, previews) it goes to `localFallback` instead.
+ * Signs the person out of every Agilitas app in this browser (they share one
+ * sign-in cookie) and sends them to the apps sign-in. Their other devices stay
+ * signed in. Off the shared domain (localhost, previews) it goes to
+ * `localFallback` instead.
  */
 export declare function signOutEverywhere(localFallback?: string): Promise<void>;
