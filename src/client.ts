@@ -18,11 +18,15 @@ export function createHubBrowserClient(env?: Partial<HubEnv>) {
 }
 
 /**
- * Signs the person out of every Agilitas app and sends them to the apps sign-in.
- * Off the shared domain (localhost, previews) it goes to `localFallback` instead.
+ * Signs the person out of every Agilitas app in this browser (they share one
+ * sign-in cookie) and sends them to the apps sign-in. Their other devices stay
+ * signed in. Off the shared domain (localhost, previews) it goes to
+ * `localFallback` instead.
  */
 export async function signOutEverywhere(localFallback = "/") {
-  await createHubBrowserClient().auth.signOut();
+  // scope "local": the default ("global") would also end the person's
+  // sessions on every other device.
+  await createHubBrowserClient().auth.signOut({ scope: "local" });
   const shared = cookieOptionsFor(window.location.hostname) !== undefined;
   window.location.assign(shared ? hubLoginUrl() : localFallback);
 }
